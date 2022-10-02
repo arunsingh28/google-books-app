@@ -1,10 +1,14 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
 
-    const handleLogin = () => {
-        console.log('login')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        console.log({ email, password })
     }
 
     return (
@@ -21,14 +25,23 @@ const Login = () => {
                             <form onSubmit={handleLogin}>
                                 <div class="form-group">
                                     <label htmlFor="email">Email address</label>
-                                    <input type="email" class="form-control form-control-sm" id="email" aria-describedby="email" />
+                                    <input type="email"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        value={email}
+                                        className="form-control form-control-sm" id="email" aria-describedby="email" />
                                 </div>
                                 <div class="form-group mt-2">
                                     <label htmlFor="password">Password</label>
                                     <Link to="forgot-password" style={{ float: "right", fontSize: "12px" }}>Forgot password?</Link>
-                                    <input type="password" class="form-control form-control-sm" id="password" />
+                                    <input
+                                        type="password"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        value={password}
+                                        className="form-control form-control-sm"
+                                        id="password"
+                                    />
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block mt-3">Sign in</button>
+                                <button type="submit" className="btn btn-primary btn-block mt-3">Sign in</button>
 
                                 <div class="sign-up mt-2">
                                     Don't have an account? <Link to="register">Create One</Link>
