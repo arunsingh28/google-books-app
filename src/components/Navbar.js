@@ -5,7 +5,7 @@ const Navbar = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Books</a>
+                    <Link className="navbar-brand" to="/">Books</Link>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-md-auto gap-2">
                             <li className="nav-item rounded">
